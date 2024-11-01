@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <style>
+        @keyframes intro {
+            0% {
+                opacity: 0.7;
+                filter: blur(25px);
+                transform: scale(2);
+            }
+            100% {
+                opacity: 1;
+                filter: blur(0);
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes outro {
+            0% {
+                opacity: 1;
+                filter: blur(0);
+                transform: scale(1);
+                background: #8dcdf0;
+            }
+            100% {
+                opacity: 0;
+                filter: blur(25px);
+                transform: scale(2);
+                background: white;
+            }
+        }
+        .outro {
+            animation: outro 1s forwards cubic-bezier(0.25, 1.46, 0.45, 1);
+        }
+        body {
+            animation: intro 1s forwards cubic-bezier(0.25, 1.46, 0.45, 1);
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: #8dcdf0;
+            color: #333;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .window {
+            width: 500px;
+            height: 400px;
+            border: 2px solid #0a74da;
+            border-radius: 6px;
+            background-color: #ffffff;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .title-bar {
+            background-color: #0a74da;
+            color: white;
+            padding: 8px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .title-bar .title {
+            font-weight: bold;
+        }
+
+        .title-bar .buttons {
+            display: flex;
+            gap: 4px;
+        }
+
+        .title-bar button {
+            width: 18px;
+            height: 18px;
+            border: none;
+            border-radius: 50%;
+            background-color: #fff;
+            cursor: pointer;
+        }
+
+        .title-bar button.close {
+            background-color: #ff5f57;
+        }
+
+        .title-bar button.minimize {
+            background-color: #ffbd2e;
+        }
+
+        .title-bar button.maximize {
+            background-color: #28c940;
+        }
+
+        .content {
+            padding: 20px;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-top: 0;
+        }
+
+        .quick-links {
+            margin-top: 10px;
+            background-color: #e8f1fa;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .quick-links h2 {
+            margin-top: 0;
+            font-size: 18px;
+            color: #0a74da;
+        }
+
+        .link {
+            color: #0a74da;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .important-notice {
+            margin-top: 20px;
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeeba;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .page-footer {
+            margin-top: 5px;
+            font-size: 14px;
+            color: #555;
+            text-align: center;
+            font-size: 11px;
+            opacity: 0.5;
+            padding: 15px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="window">
+        <div class="title-bar">
+            <div class="title">Internet Exploder</div>
+            <div class="buttons">
+                <button class="minimize"></button>
+                <button class="maximize"></button>
+                <button class="close"></button>
+            </div>
+        </div>
+        <div class="content">
+            <h1>Where would you like to go today?</h1>
+            <div class="quick-links">
+                <h2>Quick Links</h2>
+                <p><a class="link" onclick="outro('#')">Win96 Local FS over HTTP browser</a></p>
+                <p><a class="link" onclick="outro('https://v1.windows93.net')">Windows 93 (v1)</a></p>
+                <p><a class="link" onclick="outro('https://98.js.org/')">Windows 98</a></p>
+            </div>
+            <div class="important-notice">
+                <strong>Important Notice:</strong> A great number of sites will refuse to render due to their X-Frame-Options policy, or they may be using a framekiller. This policy is applied to most significant sites such as Google, so do not expect those to work.
+            </div>
+            <div class="page-footer">
+                A visual interpretation of <a class="link" onclick="outro('about:start')">about:start</a><br><a style='font-size: 8px'>13268.22fbcef0.240923-0109.bd50499feb0e51dbfcc7</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        function outro(url) {
+            document.body.classList.add('outro');
+            setTimeout(() => {
+                window.location.href = url;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
